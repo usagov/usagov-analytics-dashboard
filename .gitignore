@@ -1,0 +1,16 @@
+.*.sw?
+todo.txt
+.env
+.DS_Store
+*.log
+*.json
+*.json~
+*.csv
+.sass-cache
+Guardfile
+_site
+/*.js
+/*.gz
+/*.map
+/work
+/dist

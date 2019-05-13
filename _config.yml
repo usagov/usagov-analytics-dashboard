@@ -1,0 +1,72 @@
+
+# Don't exclude nginx.conf, needs to be copied into _site for
+# cloud.gov to pick up on it.
+exclude:
+- ".gitignore"
+- todo.txt
+- Gemfile
+- Gemfile.lock
+- Makefile
+- Staticfile
+- README.md
+- CONTRIBUTING.md
+- LICENSE.md
+- dap.md
+- uxtesting.md
+- ".sass-cache"
+- requirements.txt
+- system-security-plan.yml
+- manifest.yml
+- vendor
+- .codeclimate.yml
+- .eslinrc.yml
+- bin/
+- docs/
+- reporter-config/
+
+# defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: agencies
+    values:
+      layout: default
+
+collections:
+  agencies:
+    output: true
+    permalink: /:path/
+  data_pages:
+    output: true
+    permalink: /:path/data/
+
+# Site title and description
+title: "USAGov Web Analytics | USAGov"
+description: "Official data on web traffic to USAGov government websites."
+
+# Site's own URL
+url: https://www.usa.gov
+
+# subdirectory site will be hosted off of
+baseurl: /website-analytics
+
+# Default dropdown title, will not appear if there are no sub-pages
+dropdown_title: USA.gov and USA.gov/espanol
+
+# Default data url (also needs to be in nginx.conf for cloud.gov deployment)
+# data_url: https://analytics.usa.gov/data
+data_url: https://app-usa-modeast-prod-a01239f.s3.amazonaws.com/analytics
+
+# twitter information
+twitter: usagov
+
+# Site wide error message
+site_wide_error:
+  display: false
+  title: "Error message title here"
+  body: "Put the error message body here"
+
+sass:
+  sass_dir: sass
+  style: nested
