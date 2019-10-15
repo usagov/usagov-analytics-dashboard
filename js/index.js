@@ -398,6 +398,39 @@
       }, d3.select("#chart_windows"));
   });
 
+  whenRendered(["top-external-links"], function() {
+      //counts the numbers of children in top external links yesterday section
+      var count = document.getElementById('top-external-links-yesterday').lastElementChild.childElementCount;
+      
+      //checking to see if there are any elements in external links yesterday section
+      if (count == 0) {
+        //setting a variable to a specific tab by using unique href attribute
+        var links = document.getElementsByClassName('site-nav');
+        if (links[3].hasAttribute('href')){
+         var links_anchor = links[3].getAttribute('href');
+          if (links_anchor == "#top-external-links-yesterday") {
+           //setting variable for parent node of element with href attribute
+            var links_parent = links[3].parentNode;
+            //removing the parent node
+            links_parent.remove();
+            
+            //changing attributes and styles
+            document.getElementsByClassName('site-nav')[3].setAttribute("aria-selected", "true");
+            document.getElementById('top-external-links-yesterday').setAttribute("aria-hidden", "true");
+            document.getElementById('top-external-links-7-days').setAttribute("aria-hidden", "false");
+            document.getElementById('top-external-links-7-days').style.display = 'block';
+           // document.getElementsByTagName('em')[3].remove();
+
+            var links_list = document.getElementsByClassName('pills')[1];
+            //adding style to element
+            links_list.firstElementChild.setAttribute("style", "width:50%");
+            links_list.lastElementChild.setAttribute("style", "width:50%");
+          }
+        } 
+      }     
+  }
+);
+
   // nest the IE chart inside the browsers chart once they're both rendered
   whenRendered(["browsers", "ie"], function() {
     d3.select("#chart_browsers")
