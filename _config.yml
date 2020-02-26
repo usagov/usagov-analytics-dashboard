@@ -56,7 +56,7 @@ dropdown_title: USA.gov and USA.gov/espanol
 
 # Default data url (also needs to be in nginx.conf for cloud.gov deployment)
 # data_url: https://analytics.usa.gov/data
-data_url: https://app-usa-modeast-prod-a01239f.s3.amazonaws.com/analytics
+data_url: https://app-usa-modeast-prod-a01239f-ecas.s3.amazonaws.com/analytics
 
 # twitter information
 twitter: usagov
