@@ -194,12 +194,12 @@ ul li:before {
 */
 
 header {
-  background: $dark-blue;
+  background: $white;
   color: $white;
   border-bottom: 6px solid $light-blue;
 
   .inner {
-    padding: 2.5rem;
+    padding: 0 1.5rem 0 1.5rem;
     @include responsive_container;
     @include media($mobile-small-screen) {
       padding: 1.5rem;
@@ -207,12 +207,12 @@ header {
   }
 
   .header-right-wrap {
-    margin-top: 75px;
+    margin-top: 40px;
   }
 
   h1 {
     float: left;
-    margin: 0 24px 0 0;
+    margin: 0 150px 0 0;
     line-height: 5rem;
     @include media($medium-screen) {
       line-height: 5.5rem;
@@ -224,20 +224,22 @@ header {
 
     img {
       vertical-align: middle;
+      width: 140px;
+      padding: 20px;
     }
   }
 
   a {
-    color: $white;
+    color: $dark-blue;
     font-weight: 300;
     text-decoration: none;
   }
   a:hover {
     text-decoration: underline;
-    color: $white;
+    color: $dark-blue;
   }
   a:visited {
-    color: $white;
+    color: $dark-blue;
   }
   .agency-selector-wrap {
     width: 40%;
@@ -262,7 +264,7 @@ header {
 
 .links {
   float: right;
-  margin: 0 0 0 0;
+  margin: 0 10px 0 0;
     @include media($medium-screen) {
       li {
         display: inline;
