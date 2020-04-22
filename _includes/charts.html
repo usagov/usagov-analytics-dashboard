@@ -41,9 +41,27 @@
           </svg>
         </section>
 
-        <!-- past 30 days section -->
-        
-         <!-- past 30 days section -->
+        <!-- begin past 30 days section -->
+        <section class="section_headline">
+          <h3>Total visits in the last 30 days</h3>
+        </section>
+        <section id="realtime"
+        data-block="traffic-sources-30-days-totals"
+        data-source="{{ site.data_url }}/{{ data_prefix }}/traffic-sources-30-days.json">
+          <h2 id="current_visitors" class="data">...</h2>
+        </section>
+
+        <section class="section_headline">
+          <h3>Visits in the Past 30 Days</h3>
+        </section>
+
+        <section id="time_series"
+          data-block="traffic-sources-30-days"
+          data-source="{{ site.data_url }}/{{ data_prefix }}/traffic-sources-30-days.json">
+          <svg class="data time-series">
+          </svg>
+        </section>
+         <!-- end past 30 days section -->
          
         <section class="section_headline">
           <h3>Visits in the Past 90 Days</h3>

@@ -32,7 +32,8 @@
   // common parsing and formatting functions
   var formatCommas = d3.format(","),
       parseDate = d3.time.format("%Y-%m-%d").parse,
-      formatDate = d3.time.format("%A, %b %e"),
+     // formatDate = d3.time.format("%A, %b %e"),
+      formatDate = d3.time.format("%b %e"),
       formatPrefix = function(suffixes) {
         if (!suffixes) return formatCommas;
         return function(visits) {
@@ -100,6 +101,49 @@
       .render(function(selection, data) {
         var totals = data.data[0];
         selection.text(formatCommas(+totals.active_visitors));
+      }),
+
+      // the traffic sources 30 days block
+      "traffic-sources-30-days": renderBlock()
+      .transform(function(data) {
+        return data;
+      })
+      .render(function(svg, data) {
+        var days = data.data;
+        days.forEach(function(d) {
+          d.visits = +d.visits;
+        });
+
+        var y = function(d) { return d.visits; },
+            series = timeSeries()
+              .series([data.data])
+              .y(y)
+              .label(function(d) {
+                return formatDate(parseDate(d.date));
+              })
+              .title(function(d) {
+                return formatCommas(d.visits)
+                  + " visits on "
+                  + formatDate(parseDate(d.date));
+              });
+
+        series.xScale()
+          .domain(d3.range(0, days.length + 1));
+
+        series.yScale()
+          .domain([0, d3.max(days, y)]);
+
+        series.yAxis()
+          .tickFormat(formatVisits);
+
+        svg.call(series);
+      }),
+      
+      // the traffic sources 30 days total block
+      "traffic-sources-30-days-totals": renderBlock()
+      .render(function(selection, data) {
+        var totals = data.totals;
+        selection.text(formatCommas(+totals.visits));
       }),
 
     "today": renderBlock()

@@ -446,6 +446,15 @@ section {
   }
 }
 
+#sessions {
+  p {
+    font-size: 1.3rem;
+  }
+  .label::first-letter {
+    text-transform: uppercase;
+  }
+}
+
 .downloads {
   @include media($mobile-small-screen){
     thead th {
@@ -731,7 +740,8 @@ g.axis {
 
   text.label {
     fill: $dark-gray;
-    font-size: 1.1rem;
+    //font-size: 1.1rem;
+    font-size: .6rem;
   }
 }
 
