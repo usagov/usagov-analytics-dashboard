@@ -116,10 +116,10 @@
 
         var y = function(d) { return d.visits; },
             series = timeSeries()
-              .series([data.data])
+              .series([data.data.reverse()])
               .y(y)
               .label(function(d) {
-                return formatDate(parseDate(d.date));
+               return formatDate(parseDate(d.date));
               })
               .title(function(d) {
                 return formatCommas(d.visits)
